@@ -9,12 +9,38 @@ const REMEN = 20;                       // remen mark
 const PHI = 1.6180339887;
 const PHI_POINT = FOOT + (CUBIT - FOOT) / PHI; // 16 + 12/phi = 23.42
 
+/* The 28 gods of the cubit, from E.A. Wallis Budge, The Gods of the Egyptians,
+   Vol. 2, pp. 291-292. Budge gives each name and hieroglyph; meanings are his
+   where noted, and marked uncertain where they are not. */
 const MARKS = {
-  1:  { name: 'Finger (1 unit)', note: '0.7406 in · 1.881 cm. The base unit of the ruler.' },
-  16: { name: 'Egyptian Foot', note: '11.8503 in · 30.10 cm. Related to the equatorial measure of the earth.' },
-  20: { name: 'Remen', note: '20 fingers. Half the diagonal of the royal-cubit square. The phi mark (24) sits at 6/5 of the remen.' },
-  24: { name: 'Phi Mark', note: '16 + 12/φ ≈ 23.4, rounding to the 24th mark. The phi division of the foot-to-end segment.' },
-  28: { name: 'Royal Cubit', note: '20.738 in · 52.67 cm. 7 palms × 4 fingers = 28 fingers.' },
+  1:  { name: 'Uu', note: 'Uu (two chicks). Value ww/uu; Sumerian value 20, the god Shamash. Finger 1, the base unit of the ruler: 0.7406 in · 1.881 cm.' },
+  2:  { name: 'Amsu', note: 'Amsu (Min). Fertility, virility.' },
+  3:  { name: 'Sheps', note: 'Sheps. Noble.' },
+  4:  { name: 'Her-aua', note: 'Her-aua. Meaning uncertain; possibly a form of Horus, the falcon.' },
+  5:  { name: 'An-Her', note: 'An-Her (Onuris). He who brings back the distant one.' },
+  6:  { name: 'Seb', note: 'Seb (the star). A star-god, distinct from Seb the bird at mark 25.' },
+  7:  { name: 'Septu', note: 'Septu (Sopdu). Skilled one, falcon of the east.' },
+  8:  { name: 'Hak', note: 'Hak (Hakau). Meaning uncertain; possibly "the magics," plural of Heka. Budge himself put a question mark after this name.' },
+  9:  { name: 'Ar-ren-f-tchesef', note: 'Ar-ren-f-tchesef. He who makes his own name.' },
+  10: { name: 'Maa-en-tef', note: 'Maa-en-tef. He who sees his father.' },
+  11: { name: 'Armaua', note: 'Armaua. Meaning uncertain; possibly a form of Horus, "he of the two arms."' },
+  12: { name: 'Heq', note: 'Heq (Heka). Magic, ruler.' },
+  13: { name: 'Sep', note: 'Sep. Budge links Sep with Anubis in the Underworld; Sep is one of the localities where Anubis was worshipped.' },
+  14: { name: 'Tehuti', note: 'Tehuti (Thoth). Wisdom, writing, the moon.' },
+  15: { name: 'Qebhsennuf', note: 'Qebhsennuf (Qebehsenuef). Guards the intestines.' },
+  16: { name: 'Tuamatef', note: 'Tuamatef (Duamutef). Guards the stomach. The Egyptian foot mark: 11.8503 in · 30.10 cm, related to the equatorial measure of the earth.' },
+  17: { name: 'Hap', note: 'Hap (Hapi). Guards the lungs.' },
+  18: { name: 'Mest', note: 'Mest (Imsety). Guards the liver.' },
+  19: { name: 'Heru', note: 'Heru (Horus). The distant one, the falcon.' },
+  20: { name: 'Nebt-het', note: 'Nebt-het (Nephthys). Mistress of the House. The remen mark: 20 fingers, half the diagonal of the royal-cubit square.' },
+  21: { name: 'Set', note: 'Set. Storm, chaos.' },
+  22: { name: 'Ast', note: 'Ast (Isis). The throne, great mother.' },
+  23: { name: 'Asar', note: 'Asar (Osiris). The throne, lord of the dead.' },
+  24: { name: 'Nut', note: 'Nut. Sky. The Small cubit (meh nedjes), the documented name for this mark. Clea reads it as the phi mark: 16 + 12/φ ≈ 23.4, rounding to the 24th mark.' },
+  25: { name: 'Seb', note: 'Seb (Geb, the bird or goose). Earth. Distinct from Seb the star at mark 6.' },
+  26: { name: 'Khent', note: 'Khent. Foremost one.' },
+  27: { name: 'Shu', note: 'Shu. Air, dryness, light.' },
+  28: { name: 'Ra', note: 'Ra. The sun, creator and supreme god. The royal cubit: 20.738 in · 52.67 cm. 7 palms × 4 fingers = 28 fingers.' },
 };
 
 const KEY_MARKS = [1, 16, 20, 24, 28];
